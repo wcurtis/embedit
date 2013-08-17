@@ -5,18 +5,41 @@ html
     link(rel='stylesheet', href='/css/bootstrap.css')
     link(rel='stylesheet', href='/css/style.css')
   body
-    #header
-    #masthead
-      .masthead
-        h1 Embed anything on the web with a single API
-        p Embedit.io provide a simple and consistent API to retrieve properties of any website for quick and consistent embedding on your site.
-    #content
-      #left
-      #right
-    #footer
-    hr
-    footer
-      p &copy; Embedit 2013 | Created by @billcurtis_
+    .container
+      #header.
+        <div class="topnav">
+          <div class="navbar navbar-inverse navbar-fixed-top st">
+            <div class="container">
+
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand st" href="/">
+                Embedit.io
+              </a>
+
+              <div class="nav-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      #masthead
+        .masthead
+          h1 Embed anything on the web with a single API
+          p Embedit.io provide a simple and consistent API to retrieve properties of any website for quick and consistent embedding on your site.
+      #content
+        #left
+        #right
+      #footer
+      hr
+      footer
+        p &copy; Embedit 2013 | Created by 
+          a(href="http://twitter.com/billcurtis_", target="_blank", data-bypass="true") @billcurtis_
 
     .templates
 
