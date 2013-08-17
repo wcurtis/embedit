@@ -103,6 +103,11 @@ var youtubeModule = {
 
     var result = {};
 
+    var title = $('#eow-title').text().trim();
+    var description = $('#eow-description').text().trim();
+
+    result.title = title;
+    result.description = description;
     result.sourceId = id;
     result.originalUrl = url;
     result.shortUrl = this.shortUrl.replace(':id', id);
