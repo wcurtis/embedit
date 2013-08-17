@@ -9,6 +9,13 @@ var embedit = exports.embedit = {
     this.modules[key] = module;
   },
 
+  /**
+   * Takes a url, calls back with the embedit page data
+   * if the url is supported by the registered plugins.
+   * 
+   * @param  string   url
+   * @param  {Function} callback(err, embeditPage)
+   */
   processUrl: function(url, callback) {
 
     var self = this;
@@ -37,9 +44,13 @@ var embedit = exports.embedit = {
 
 };
 
+/**
+ * Embedit module that supports youtube urls
+ */
 var youtubeModule = {
 
   moduleId: 'youtube',
+  shortUrl: 'http://youtu.be/:id',
 
   match: function(url) {
     // TODO: Match shorturl and variations of the youtube url (eg. youtu.be)
@@ -47,8 +58,15 @@ var youtubeModule = {
   },
 
   getIdFromUrl: function(url) {
-    // TODO: Implement
-    return '3DrtUcsroeucg';
+
+    // Credit: http://stackoverflow.com/a/9102270/540194
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+
+    if (match && match[2].length == 11){
+        return match[2];
+    }
+      return null;
   },
 
   processUrl: function(url, callback) {
@@ -62,7 +80,7 @@ var youtubeModule = {
 
     result.sourceId = id;
     result.originalUrl = url;
-    result.shortUrl = 'http://youtu.be/3DrtUcsroeucg';
+    result.shortUrl = this.shortUrl.replace(':id', id);
 
     return callback(null, result);
   }
@@ -73,7 +91,10 @@ embedit.registerModule('youtube', youtubeModule);
 
 var test = function() {
 
-  embedit.processUrl('http://www.youtube.com/watch?v=rtUcsroeucg', function(err, result) {
+  var url = null;
+  url = 'http://www.youtube.com/watch?v=rtUcsroeucg';
+
+  embedit.processUrl(url, function(err, result) {
 
     if (err) {
       console.log('Error: ' + err.message);
