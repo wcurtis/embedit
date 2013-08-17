@@ -3,7 +3,7 @@ var _ = require('underscore');
 
 var embedit = exports.embedit = {
 
-  modules: [],
+  modules: {},
 
   registerModule: function(key, module) {
     this.modules[key] = module;
@@ -11,12 +11,19 @@ var embedit = exports.embedit = {
 
   processUrl: function(url, callback) {
 
+    var self = this;
+
     var result = null;
     var matchedModule = null;
 
-    matchedModule = _.find(this.modules, function(module) {
+    // Call match() on each module
+    var moduleKeys = _.keys(this.modules);
+    var matchedKey = _.find(moduleKeys, function(moduleKey) {
+      var module = self.modules[moduleKey];
       return module.match(url);
     });
+
+    matchedModule = this.modules[matchedKey] || null;
 
     // Callback an error if no module supports the url
     if (!matchedModule) {
@@ -25,7 +32,7 @@ var embedit = exports.embedit = {
       });
     }
 
-    matchedModule.processUrl(callback);
+    matchedModule.processUrl(url, callback);
   }
 
 };
@@ -42,6 +49,11 @@ var youtubeModule = {
   getIdFromUrl: function(url) {
     // TODO: Implement
     return '3DrtUcsroeucg';
+  },
+
+  processUrl: function(url, callback) {
+    var id = this.getIdFromUrl(url);
+    this.process(url, id, callback);
   },
 
   process: function(url, id, callback) {
