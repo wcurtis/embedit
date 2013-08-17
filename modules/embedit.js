@@ -35,7 +35,8 @@ var embedit = exports.embedit = {
     // Callback an error if no module supports the url
     if (!matchedModule) {
       return callback({
-        message: "Url did not match a supported module"
+        code: "url_not_supported",
+        message: "Embedit does not support the provided url type.. yet."
       });
     }
 
