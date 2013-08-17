@@ -36,11 +36,11 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-var pageApi = require('./routes/api/page')
+var scrapeApi = require('./routes/api/scrape')
   ;
 
 app.get('/', routes.index);
-app.get('/api/page', pageApi.get);
+app.get('/api/scrape', scrapeApi.get);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
