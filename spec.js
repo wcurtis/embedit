@@ -19,9 +19,6 @@
  * Facebook
  */
 
-
-
-
 /**
  * Youtube
  * Eg. http://www.youtube.com/watch?v=rtUcsroeucg
@@ -33,24 +30,6 @@ api.embedit.io/page?url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DrtUcsroeucg%0
 {
   title: "Kelso's Kosher Burn",
   description: "disclaimer - DONT OWN ANY OF THIS!!!!",
-  images: [
-    {
-      url: "http://i1.ytimg.com/vi/rtUcsroeucg/default.jpg",
-      height: 90,
-      width: 120,
-    },
-    {
-      url: "http://i1.ytimg.com/vi/rtUcsroeucg/mqdefault.jpg",
-      height: 180,
-      width: 320,
-    },
-    {
-      url: "http://i1.ytimg.com/vi/rtUcsroeucg/hqdefault.jpg",
-      height: 360,
-      width: 480,
-    }
-  ],
-
   caption: "Kelso's Kosher Burn",
   thumbnail: "http://i1.ytimg.com/vi/rtUcsroeucg/default.jpg",
   media: "http://www.youtube.com/v/rtUcsroeucg",
@@ -74,10 +53,6 @@ api.embedit.io/page?url=http%3A%2F%2Finstagram.com%2Fp%2FcIuIvBrOXp
 {
   title: "",
   description: "Fun cooking dinner al fresco tonight for the fam:heirloom caprese salad,grilled corn w/chile coconut lime aoli&spicy chicken sausage.Don't leave,summer.Please.",
-  images: [
-    url: "http://distilleryimage1.ak.instagram.com/54ab7430f41e11e2956c22000aa802b4_6.jpg"
-  ],
-
   caption: "Fun cooking dinner al fresco tonight for the fam:heirloom caprese salad,grilled corn w/chile coconut lime aoli&spicy chicken sausage.Don't leave,summer.Please.",
   thumbnail: "http://distilleryimage1.ak.instagram.com/54ab7430f41e11e2956c22000aa802b4_6.jpg",
   media: "http://distilleryimage1.ak.instagram.com/54ab7430f41e11e2956c22000aa802b4_6.jpg",
@@ -100,10 +75,6 @@ api.embedit.io/page?url=https%3A%2F%2Fvine.co%2Fv%2FhWEgv65gzTr
 {
   title: "Oh Canada. #cottagelife",
   description: "",
-  images: [
-    url: "https://v.cdn.vine.co/r/thumbs/05E846C17F965433176732385280_1373131034695_image_pdTUSSV726looRjG12351337643.9GBDQ2FqkUT5W0ghbr3ab8VzmQFSjIeTiN82KNkY6HNGWS.jpg"
-  ],
-
   caption: "Oh Canada. #cottagelife",
   thumbnail: "https://v.cdn.vine.co/r/thumbs/05E846C17F965433176732385280_1373131034695_image_pdTUSSV726looRjG12351337643.9GBDQ2FqkUT5W0ghbr3ab8VzmQFSjIeTiN82KNkY6HNGWS.jpg"
   media: "https://v.cdn.vine.co/r/videos/65486D17CF965433169564291072_13731310346954aa3242953.mp4_PBp72RgKSbicNpR2bEyma.9vAA1bIy0iceydUKCr7sLJEZQMtyoh9Mzw8mnwbxk1.mp4",
