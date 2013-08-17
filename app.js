@@ -22,6 +22,16 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
+/**
+ * Redirect naked domain to www
+ */
+app.use(function(req, res, next){
+  if(req.headers.host === process.env.NAKED_DOMAIN) { 
+    return res.redirect(301, process.env.BASE_URL + req.url);
+  }
+  next(); 
+}); 
+
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
