@@ -71,7 +71,7 @@ api.embedit.io/page?url=https%3A%2F%2Fvine.co%2Fv%2FhWEgv65gzTr
 {
   title: "Oh Canada. #cottagelife",
   description: "",
-  thumbnail: "https://v.cdn.vine.co/r/thumbs/05E846C17F965433176732385280_1373131034695_image_pdTUSSV726looRjG12351337643.9GBDQ2FqkUT5W0ghbr3ab8VzmQFSjIeTiN82KNkY6HNGWS.jpg"
+  thumbnail: "https://v.cdn.vine.co/r/thumbs/05E846C17F965433176732385280_1373131034695_image_pdTUSSV726looRjG12351337643.9GBDQ2FqkUT5W0ghbr3ab8VzmQFSjIeTiN82KNkY6HNGWS.jpg",
   media: "https://v.cdn.vine.co/r/videos/65486D17CF965433169564291072_13731310346954aa3242953.mp4_PBp72RgKSbicNpR2bEyma.9vAA1bIy0iceydUKCr7sLJEZQMtyoh9Mzw8mnwbxk1.mp4",
   embed: '<iframe class="vine-embed" src="https://vine.co/v/hWEgv65gzTr/embed/simple" width="600" height="600" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>',
   mediaType: "video",

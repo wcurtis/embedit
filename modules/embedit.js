@@ -88,6 +88,11 @@ var youtubeModule = {
 
   getIdFromUrl: function(url) {
 
+    // For some reason the below url will also match vine.co/v/:id, so we match the domain explicitely here
+    if (url.indexOf('youtube') === -1 && url.indexOf('youtu.be')) {
+      return null;
+    }
+
     // Credit: http://stackoverflow.com/a/9102270/540194
     var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
     var match = url.match(regExp);
@@ -102,9 +107,6 @@ var youtubeModule = {
     var id = this.getIdFromUrl(url);
 
     var result = null;
-
-    var title = $('#eow-title').text().trim();
-    var description = $('#eow-description').text().trim();
 
     result = {
       title:        $('#eow-title').text().trim(),
@@ -122,12 +124,74 @@ var youtubeModule = {
   },
 };
 
+
+/**
+ * Embedit module that supports youtube urls
+ */
+var vineModule = {
+
+  moduleId: 'vine',
+
+  match: function(url) {
+    // TODO: Match shorturl and variations of the youtube url (eg. youtu.be)
+    return this.getIdFromUrl(url) !== null;
+  },
+
+  getIdFromUrl: function(url) {
+
+    // For some reason the below url will also match vine.co/v/:id, so we match the domain explicitely here
+    if (url.indexOf('vine.co') === -1) {
+      return null;
+    }
+
+    // Credit: http://stackoverflow.com/a/9102270/540194
+    // TODO: Find out why the youtu.be at the beginning doesn't matter, it still matches vine
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+
+    if (match && match[2].length == 11){
+        return match[2];
+    }
+      return null;
+  },
+
+  process: function(url, $, callback) {
+    var id = this.getIdFromUrl(url);
+
+    if (!id) {
+      return callback({
+        code: 'no_id_found',
+        message: 'Could not find the source id for url: ' + url
+      });
+    }
+
+    var result = null;
+
+    result = {
+      title:        $('meta[property="twitter:title"]').attr('content').trim(),
+      description:  $('meta[property="twitter:description"]').attr('content').trim(),
+      thumbnail:    $('meta[property="twitter:image"]').attr('content').trim(),
+      media:        $('meta[property="twitter:player:stream"]').attr('content').trim(),
+      mediaType:    "video",
+      mediaFormat:  "mp4",
+      sourceType:   "vine",
+      sourceId:     id,
+      embed:        '<iframe class="vine-embed" src="https://vine.co/v/' + id + '/embed/simple" width="600" height="600" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>',
+      shortUrl:     "https://vine.co/v/" + id
+    };
+
+    return callback(null, result);
+  },
+};
+
 embedit.registerModule('youtube', youtubeModule);
+embedit.registerModule('vine', vineModule);
 
 var test = function() {
 
   var url = null;
   url = 'http://www.youtube.com/watch?v=rtUcsroeucg';
+  url = 'https://vine.co/v/hWEgv65gzTr';
 
   embedit.processUrl(url, function(err, result) {
 
