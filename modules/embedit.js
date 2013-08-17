@@ -40,7 +40,7 @@ var embedit = exports.embedit = {
     if (!matchedModule) {
       return callback({
         code: "url_not_supported",
-        message: "Embedit does not support the provided url type.. yet."
+        message: "Embedit does not support the provided url: " + url
       });
     }
 
@@ -115,6 +115,7 @@ var youtubeModule = {
       media:        "http://www.youtube.com/v/" + id,
       embed:        '<iframe width="560" height="315" src="//www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe>',
       mediaType:    "video",
+      mediaFormat:  "flash",
       sourceType:   "youtube",
       sourceId:     id,
       shortUrl:     "http://youtu.be/" + id
@@ -126,7 +127,7 @@ var youtubeModule = {
 
 
 /**
- * Embedit module that supports youtube urls
+ * Embedit module that supports vine urls
  */
 var vineModule = {
 
@@ -184,14 +185,78 @@ var vineModule = {
   },
 };
 
+
+/**
+ * Embedit module that supports instagram urls
+ */
+var instagramModule = {
+
+  moduleId: 'instagram',
+
+  match: function(url) {
+    // TODO: Match shorturl and variations of the youtube url (eg. youtu.be)
+    return this.getIdFromUrl(url) !== null;
+  },
+
+  getIdFromUrl: function(url) {
+
+    // For some reason the below url will also match vine.co/v/:id, so we match the domain explicitely here
+    if (url.indexOf('instagram.com') === -1 && url.indexOf('instagr.am') === -1) {
+      return null;
+    }
+
+    // Credit: http://stackoverflow.com/a/9102270/540194
+    // TODO: Find out why the youtu.be at the beginning doesn't matter, it still matches instagram (added a 'p')
+    var regExp = /^.*(youtu.be\/|p\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+
+    // Instagram ids are 10 chars
+    if (match && match[2].length == 10){
+        return match[2];
+    }
+      return null;
+  },
+
+  process: function(url, $, callback) {
+    var id = this.getIdFromUrl(url);
+
+    if (!id) {
+      return callback({
+        code: 'no_id_found',
+        message: 'Could not find the source id for url: ' + url
+      });
+    }
+
+    var result = null;
+
+    result = {
+      title:        $('meta[property="og:description"]').attr('content').trim(),
+      description:  null, // TODO: Get this from instagram api, can't scrape easily
+      thumbnail:    $('meta[property="og:image"]').attr('content').trim(),
+      // TODO: Use api for this
+      media:        $('meta[property="og:image"]').attr('content').trim(),
+      mediaType:    "image",
+      mediaFormat:  "jpg",
+      sourceType:   "instagram",
+      sourceId:     id,
+      embed:        '<iframe src="//instagram.com/p/' + id + '/embed/" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"></iframe>',
+      shortUrl:     "http://instagr.am/p/" + id
+    };
+
+    return callback(null, result);
+  },
+};
+
 embedit.registerModule('youtube', youtubeModule);
 embedit.registerModule('vine', vineModule);
+embedit.registerModule('instagram', instagramModule);
 
 var test = function() {
 
   var url = null;
   url = 'http://www.youtube.com/watch?v=rtUcsroeucg';
   url = 'https://vine.co/v/hWEgv65gzTr';
+  url = 'http://instagram.com/p/cIuIvBrOXp';
 
   embedit.processUrl(url, function(err, result) {
 
