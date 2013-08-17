@@ -1,5 +1,9 @@
 
-var _ = require('underscore');
+var _ = require('underscore')
+  , request = require('request')
+  , jsdom = require('jsdom')
+  ;
+
 
 var embedit = exports.embedit = {
 
@@ -40,8 +44,32 @@ var embedit = exports.embedit = {
       });
     }
 
-    matchedModule.processUrl(url, callback);
-  }
+    console.log("Matched url to module: " + matchedKey);
+    console.log("Fetching url: " + url);
+    this.fetchSite(url, function(err, window) {
+      console.log("Processing page");
+      matchedModule.process(url, window.$, callback);
+    });
+  },
+
+  fetchSite: function(url, callback) {
+
+    request(url, function(err, resp, body) {
+      if (err) return callback(err);
+
+      jsdom.env({
+        html: body,
+        scripts: ['http://code.jquery.com/jquery-1.6.min.js']
+      }, function(err, window){
+        if (err) return callback(err);
+
+        //Use jQuery just as in a regular HTML page
+        window.$ = window.jQuery;
+        callback(null, window);
+      });
+    });
+
+  },
 
 };
 
@@ -55,7 +83,7 @@ var youtubeModule = {
 
   match: function(url) {
     // TODO: Match shorturl and variations of the youtube url (eg. youtu.be)
-    return url.indexOf('youtube.com') !== -1;
+    return this.getIdFromUrl(url) !== null;
   },
 
   getIdFromUrl: function(url) {
@@ -70,12 +98,8 @@ var youtubeModule = {
       return null;
   },
 
-  processUrl: function(url, callback) {
+  process: function(url, $, callback) {
     var id = this.getIdFromUrl(url);
-    this.process(url, id, callback);
-  },
-
-  process: function(url, id, callback) {
 
     var result = {};
 
@@ -84,8 +108,7 @@ var youtubeModule = {
     result.shortUrl = this.shortUrl.replace(':id', id);
 
     return callback(null, result);
-  }
-
+  },
 };
 
 embedit.registerModule('youtube', youtubeModule);
@@ -107,7 +130,7 @@ var test = function() {
   });
 
 };
-// test();
+test();
 
 
 

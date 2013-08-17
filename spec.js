@@ -37,7 +37,6 @@ api.embedit.io/page?url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DrtUcsroeucg%0
   mediaType: "video",
   sourceType: "youtube",
   sourceId: "rtUcsroeucg",
-  sourceDomain: "youtube.com",
   shortUrl: "http://youtu.be/rtUcsroeucg"
 }
 
@@ -60,7 +59,6 @@ api.embedit.io/page?url=http%3A%2F%2Finstagram.com%2Fp%2FcIuIvBrOXp
   mediaType: "image",
   sourceType: "instagram",
   sourceId: "cIuIvBrOXp",
-  sourceDomain: "instagram.com"
   shortUrl: "http://instagr.am/p/cIuIvBrOXp"
 }
 
@@ -82,7 +80,6 @@ api.embedit.io/page?url=https%3A%2F%2Fvine.co%2Fv%2FhWEgv65gzTr
   mediaType: "video",
   sourceType: "vine",
   sourceId: "hWEgv65gzTr",
-  sourceDomain: "vine.co"
   shortUrl: "https://vine.co/v/hWEgv65gzTr"
 }
 
