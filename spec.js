@@ -30,7 +30,6 @@ api.embedit.io/page?url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DrtUcsroeucg%0
 {
   title: "Kelso's Kosher Burn",
   description: "disclaimer - DONT OWN ANY OF THIS!!!!",
-  caption: "Kelso's Kosher Burn",
   thumbnail: "http://i1.ytimg.com/vi/rtUcsroeucg/default.jpg",
   media: "http://www.youtube.com/v/rtUcsroeucg",
   embed: '<iframe width="560" height="315" src="//www.youtube.com/embed/rtUcsroeucg" frameborder="0" allowfullscreen></iframe>',
@@ -52,7 +51,6 @@ api.embedit.io/page?url=http%3A%2F%2Finstagram.com%2Fp%2FcIuIvBrOXp
 {
   title: "",
   description: "Fun cooking dinner al fresco tonight for the fam:heirloom caprese salad,grilled corn w/chile coconut lime aoli&spicy chicken sausage.Don't leave,summer.Please.",
-  caption: "Fun cooking dinner al fresco tonight for the fam:heirloom caprese salad,grilled corn w/chile coconut lime aoli&spicy chicken sausage.Don't leave,summer.Please.",
   thumbnail: "http://distilleryimage1.ak.instagram.com/54ab7430f41e11e2956c22000aa802b4_6.jpg",
   media: "http://distilleryimage1.ak.instagram.com/54ab7430f41e11e2956c22000aa802b4_6.jpg",
   embed: '<iframe src="//instagram.com/p/cIuIvBrOXp/embed/" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"></iframe>',
@@ -73,7 +71,6 @@ api.embedit.io/page?url=https%3A%2F%2Fvine.co%2Fv%2FhWEgv65gzTr
 {
   title: "Oh Canada. #cottagelife",
   description: "",
-  caption: "Oh Canada. #cottagelife",
   thumbnail: "https://v.cdn.vine.co/r/thumbs/05E846C17F965433176732385280_1373131034695_image_pdTUSSV726looRjG12351337643.9GBDQ2FqkUT5W0ghbr3ab8VzmQFSjIeTiN82KNkY6HNGWS.jpg"
   media: "https://v.cdn.vine.co/r/videos/65486D17CF965433169564291072_13731310346954aa3242953.mp4_PBp72RgKSbicNpR2bEyma.9vAA1bIy0iceydUKCr7sLJEZQMtyoh9Mzw8mnwbxk1.mp4",
   embed: '<iframe class="vine-embed" src="https://vine.co/v/hWEgv65gzTr/embed/simple" width="600" height="600" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>',

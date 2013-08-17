@@ -101,16 +101,22 @@ var youtubeModule = {
   process: function(url, $, callback) {
     var id = this.getIdFromUrl(url);
 
-    var result = {};
+    var result = null;
 
     var title = $('#eow-title').text().trim();
     var description = $('#eow-description').text().trim();
 
-    result.title = title;
-    result.description = description;
-    result.sourceId = id;
-    result.originalUrl = url;
-    result.shortUrl = this.shortUrl.replace(':id', id);
+    result = {
+      title:        $('#eow-title').text().trim(),
+      description:  $('#eow-description').text().trim(),
+      thumbnail:    "http://img.youtube.com/vi/" + id + "/default.jpg",
+      media:        "http://www.youtube.com/v/" + id,
+      embed:        '<iframe width="560" height="315" src="//www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe>',
+      mediaType:    "video",
+      sourceType:   "youtube",
+      sourceId:     id,
+      shortUrl:     "http://youtu.be/" + id
+    };
 
     return callback(null, result);
   },
