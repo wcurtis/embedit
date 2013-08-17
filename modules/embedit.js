@@ -40,7 +40,7 @@ var embedit = exports.embedit = {
     if (!matchedModule) {
       return callback({
         code: "url_not_supported",
-        message: "Embedit does not support the provided url: " + url
+        message: "Embedit does not support the provided url: " + url + '. Currently we support urls from ' + moduleKeys.join(', ') + "."
       });
     }
 
@@ -270,7 +270,7 @@ var test = function() {
   });
 
 };
-test();
+// test();
 
 
 
