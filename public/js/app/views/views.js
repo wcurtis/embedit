@@ -12,8 +12,15 @@ window.MastheadView = Backbone.View.extend({
 
   render: function (eventName) {
 
+    var brands = [
+      'youtube',
+      'instagram',
+      'vine'
+    ];
+
     this.$el.html(this.template({
-      data: this.options.data || {}
+      data: this.options.data || {},
+      supportedBrands: brands
     }));
 
     return this;

@@ -13,9 +13,11 @@ script#masthead-template(type="text/template").
       </form>
     </div>
     <div class="supported-brands clearfix">
-      <img src="/img/logo-youtube.png">
-      <img src="/img/logo-instagram.png">
-      <img src="/img/logo-vine.png">
+      <% _.each(supportedBrands, function(brand) { %>
+        <a href="#">
+          <img src="/img/logo-<%= brand %>.png">
+        </a>
+      <% }); %>
     </div>
     <div class="">Officially supported platforms</div>
   </div>
