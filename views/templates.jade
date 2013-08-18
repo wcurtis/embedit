@@ -43,7 +43,7 @@ script#json-template(type="text/template").
             _.each(keys, function(key) { 
             var value = data[key];
           %>
-            <li class="list-group-item"><pre><span class="json-key"><%= key %></span>: <%= _.escape(value) %></pre></li>
+            <li class="list-group-item json-item" data-key=<%= key %>><pre><span class="json-key"><%= key %></span>: <%= _.escape(value) %></pre></li>
           <% }); %>
           <li class="list-group-item">}</li>
         </ul>

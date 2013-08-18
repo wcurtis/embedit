@@ -53,6 +53,10 @@ window.ContentView = Backbone.View.extend({
 
 window.JsonView = Backbone.View.extend({
 
+  events: {
+    "mouseenter .json-item": "onItemHover"
+  },
+
   initialize: function () {
     this.template = _.template($('#json-template').html());
     this.model = new Backbone.Model();
@@ -72,6 +76,13 @@ window.JsonView = Backbone.View.extend({
 
     return this;
   },
+
+  onItemHover: function(e) {
+
+    var $item = $(e.currentTarget);
+    var key = $item.data('key');
+    app.vent.trigger('json:highlight', { key: key });
+  }
 });
 
 window.EmbeddedView = Backbone.View.extend({

@@ -52,7 +52,7 @@ footer {
 	border-radius: 4px;
 }
 
-.json .list-group-item:hover {
+.json .json-item:hover {
 	background-color: #D6D6D6;
 }
 
