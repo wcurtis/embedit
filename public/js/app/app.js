@@ -25,6 +25,8 @@ var AppRouter = Backbone.Router.extend({
 
       var mastheadView = new MastheadView();
       $('#masthead').html(mastheadView.render().el);
+      // Defaulting for dev
+      mastheadView.$('input').val('http://www.youtube.com/watch?v=rtUcsroeucg');
       mastheadView.$('input').focus();
 
       var embeddedView = new EmbeddedView();
