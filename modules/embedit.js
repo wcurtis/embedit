@@ -89,7 +89,7 @@ var youtubeModule = {
   getIdFromUrl: function(url) {
 
     // For some reason the below url will also match vine.co/v/:id, so we match the domain explicitely here
-    if (url.indexOf('youtube') === -1 && url.indexOf('youtu.be')) {
+    if (url.indexOf('youtube') === -1 && url.indexOf('youtu.be') === -1) {
       return null;
     }
 
