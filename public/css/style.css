@@ -46,6 +46,18 @@ footer {
 	height: 55px;
 }
 
+.masthead .supported-brands {
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.masthead .supported-brands img {
+	float: left;
+	width: 40px;
+	margin-left: 8px;
+	border-radius: 4px;
+}
+
 /**
  * Content
  */
@@ -90,7 +102,7 @@ footer {
 
   .masthead {
     padding-top: 50px;
-    padding-bottom: 70px;
+    padding-bottom: 20px;
   }
 
   .masthead h1 {
