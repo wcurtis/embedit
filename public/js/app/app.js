@@ -5,7 +5,8 @@ var AppRouter = Backbone.Router.extend({
 
   initialize:function () {
     this.vent = _.extend({}, Backbone.Events);
-    return;
+
+    this.vent.on('scrape', this.onScrape, this);
   },
 
   routes:{
@@ -15,6 +16,21 @@ var AppRouter = Backbone.Router.extend({
   setup: function(callback) {
     var self = this;
     callback();
+  },
+
+  onScrape: function(data) {
+
+    var url = data.url;
+    var scrape = new Scrape({ 
+      params: {
+        url: url 
+      }
+    });
+
+    app.vent.trigger('scrape:before', url);
+    scrape.fetch({success: function() {
+      app.vent.trigger('scrape:after', scrape);
+    }});
   },
 
   showHome: function() {

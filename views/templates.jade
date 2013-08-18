@@ -1,7 +1,7 @@
 script#masthead-template(type="text/template").
   <div class="masthead">
     <h1>Embed anything. Code nothing.</h1>
-    <p>Embedit provides a simple and unified API for retrieving metadata of any website, for quick and consistent embedding on your site.</p>
+    <p>Embedit provides a simple and unified API for retrieving metadata for any website. Trade a URL for rich meta data, try it yourself!</p>
     <div class="tryit">
       <form action="#" method="get" class="form-horizontal">
         <div class="input-group input-group-lg">
@@ -32,6 +32,21 @@ script#embedded-template(type="text/template").
   </div>
 
 script#json-template(type="text/template").
-  <div class="json well">
-    { sup: yall }
+  <div class="json">
+    <div class="panel">
+      <div class="panel-heading">GET /api/scrape?url=http://youtube.com/v/3j3j2lk</div>
+        <div class="panel-body">
+        <ul class="list-group">
+          <li class="list-group-item">{</li>
+          <% 
+            var keys = _.keys(data);
+            _.each(keys, function(key) { 
+            var value = data[key];
+          %>
+            <li class="list-group-item json-item" data-key=<%= key %>><pre><span class="json-key"><%= key %></span>: <%= _.escape(value) %></pre></li>
+          <% }); %>
+          <li class="list-group-item">}</li>
+        </ul>
+      </div>
+    </div>
   </div>
