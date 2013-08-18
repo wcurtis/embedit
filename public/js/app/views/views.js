@@ -3,7 +3,14 @@ window.MastheadView = Backbone.View.extend({
 
   events: {
     "click .btn": "onSubmit",
-    "keypress input": "onKeypress"
+    "keypress input": "onKeypress",
+    "click .supported-brands a": "onBrandClick"
+  },
+
+  exampleUrls: {
+    youtube: "http://www.youtube.com/watch?v=rtUcsroeucg",
+    instagram: "http://instagram.com/p/cIuIvBrOXp",
+    vine: "https://vine.co/v/hWEgv65gzTr"
   },
 
   initialize: function () {
@@ -12,11 +19,7 @@ window.MastheadView = Backbone.View.extend({
 
   render: function (eventName) {
 
-    var brands = [
-      'youtube',
-      'instagram',
-      'vine'
-    ];
+    var brands = _.keys(this.exampleUrls);
 
     this.$el.html(this.template({
       data: this.options.data || {},
@@ -41,6 +44,19 @@ window.MastheadView = Backbone.View.extend({
 
     app.vent.trigger('scrape', {
       url: url
+    });
+    return false;
+  },
+
+  onBrandClick: function(e) {
+
+    var $item = $(e.currentTarget);
+    var key = $item.data('key');
+
+    console.log('click ' + key);
+
+    app.vent.trigger('scrape', { 
+      url: this.exampleUrls[key]
     });
     return false;
   }

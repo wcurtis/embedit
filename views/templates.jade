@@ -14,7 +14,7 @@ script#masthead-template(type="text/template").
     </div>
     <div class="supported-brands clearfix">
       <% _.each(supportedBrands, function(brand) { %>
-        <a href="#">
+        <a href="#" data-key=<%= brand %>>
           <img src="/img/logo-<%= brand %>.png">
         </a>
       <% }); %>
