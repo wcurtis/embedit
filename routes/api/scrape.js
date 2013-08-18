@@ -11,7 +11,7 @@ exports.get = function(req, res){
 
   embedit.processUrl(url, function(err, result) {
     if (err) {
-      return res.send(500, {
+      return res.send(400, {
         error: err
       });
     }
