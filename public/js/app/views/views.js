@@ -109,6 +109,11 @@ window.JsonView = Backbone.View.extend({
       url: this.url || ''
     }));
 
+    // Don't want to show anything except skeleton if no url present yet
+    if (!_.isString(this.url)) {
+      this.$('.with-url').html('&nbsp;');
+    }
+
     return this;
   },
 

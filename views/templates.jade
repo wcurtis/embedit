@@ -31,7 +31,7 @@ script#content-template(type="text/template").
 script#embedded-template(type="text/template").
   <div class="embedded">
     <div class="panel">
-      <div class="panel-heading"><%= data.title %></div>
+      <div class="panel-heading"><%= data.title || '&nbsp;' %></div>
       <div class="panel-body">
         <div class="embed"><%= data.embed %></div>
         <p><%= data.description %></p>
@@ -42,10 +42,14 @@ script#embedded-template(type="text/template").
 script#json-template(type="text/template").
   <div class="json">
     <div class="panel">
-      <div class="panel-heading">GET <a href="/api/scrape?url=<%= url %>" target="_blank" data-bypass="true">/api/scrape?url=<%= url %></a></div>
-        <div class="panel-body">
+      <div class="panel-heading">
+        <span class="with-url">
+          GET <a href="/api/scrape?url=<%= url %>" target="_blank" data-bypass="true">/api/scrape?url=<%= url %></a>
+        </span>
+      </div>
+      <div class="panel-body">
         <ul class="list-group">
-          <li class="list-group-item">{</li>
+          <li class="list-group-item with-url">{</li>
           <% 
             var keys = _.keys(data);
             _.each(keys, function(key) { 
@@ -53,7 +57,7 @@ script#json-template(type="text/template").
           %>
             <li class="list-group-item json-item" data-key=<%= key %>><pre><span class="json-key"><%= key %></span>: <%= _.escape(value) %></pre></li>
           <% }); %>
-          <li class="list-group-item">}</li>
+          <li class="list-group-item with-url">}</li>
         </ul>
       </div>
     </div>

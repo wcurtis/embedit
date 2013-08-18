@@ -96,11 +96,19 @@ footer {
 	width: 100%;
 }
 
+.embedded .panel {
+	min-height: 400px;
+}
+
 /**
  * Json
  */
 .json {
 	font-size: 12px;
+}
+
+.json .panel {
+	min-height: 400px;
 }
 
 .json pre {
