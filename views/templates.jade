@@ -40,6 +40,12 @@ script#embedded-template(type="text/template").
       <div class="panel-body">
         <div class="embed" data-key="embed"><%= data.embed %></div>
         <p data-key="description"><%= data.description %></p>
+        <div class="input-group with-url">
+          <input class="form-control" data-key="shortUrl" type="text" value="<%= data.shortUrl %>">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Share</button>
+          </span>
+        </div>
       </div>
     </div>
   </div>

@@ -145,6 +145,11 @@ window.EmbeddedView = Backbone.View.extend({
       data: this.model.toJSON()
     }));
 
+    // Don't want to show anything except skeleton if no url present yet
+    if (_.isEmpty(this.model.toJSON())) {
+      this.$('.with-url').html('&nbsp;');
+    }
+
     return this;
   },
 
