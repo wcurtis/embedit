@@ -14,10 +14,39 @@
   line-height: 1;
 }
 
+.masthead .tryit {
+	max-width: 540px;
+	margin: auto;
+	margin-top: 25px;
+}
+
+.masthead .url-input,
+.masthead .input-group-lg > .input-group-btn > .btn {
+	height: 55px;
+}
+
 footer {
 	text-align: center;
 }
 
 .embedded .embed iframe {
 	width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+
+  .masthead {
+    padding-top: 100px;
+    padding-bottom: 30px;
+  }
+
+  .masthead h1 {
+    font-size: 50px;
+  }
+
+  .masthead p {
+    margin-left: 15%;
+    margin-right: 15%;
+    font-size: 20px;
+  }
 }
