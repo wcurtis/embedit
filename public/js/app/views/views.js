@@ -2,7 +2,7 @@
 window.MastheadView = Backbone.View.extend({
 
   events: {
-    "click .btn": "onSubmit",
+    "click .btn-embedit": "onSubmit",
     "keypress input": "onKeypress",
     "click .supported-brands a": "onBrandClick"
   },
@@ -15,6 +15,7 @@ window.MastheadView = Backbone.View.extend({
 
   initialize: function () {
     this.template = _.template($('#masthead-template').html());
+    app.vent.on('scrape:after', this.onScrapeAfter, this);
   },
 
   render: function (eventName) {
@@ -25,6 +26,8 @@ window.MastheadView = Backbone.View.extend({
       data: this.options.data || {},
       supportedBrands: brands
     }));
+
+    this.$('.btn-embedit').button();
 
     return this;
   },
@@ -41,6 +44,9 @@ window.MastheadView = Backbone.View.extend({
   onSubmit: function(e) {
 
     var url = this.$('.url-input').val();
+
+    // Set button to a loading state
+    this.$('.btn-embedit').button('loading');
 
     app.vent.trigger('scrape', {
       url: url
@@ -59,6 +65,10 @@ window.MastheadView = Backbone.View.extend({
       url: this.exampleUrls[key]
     });
     return false;
+  },
+
+  onScrapeAfter: function(data) {
+    this.$('.btn-embedit').button('reset');
   }
 });
 
