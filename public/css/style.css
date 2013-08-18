@@ -11,6 +11,12 @@ footer {
 	text-align: center;
 }
 
+.focused {
+	outline-color: rgb(91, 157, 217);
+	outline-style: auto;
+	outline-width: 5px;
+}
+
 .navbar-brand {
 	font-family: 'Chau Philomene One', sans-serif;
 }

@@ -152,10 +152,10 @@ window.EmbeddedView = Backbone.View.extend({
 
     // TODO: Find a way to highlight the parts being used
 
-    // var key = data.key;
+    var key = data.key;
 
-    // this.$('[data-key]').blur();
-    // this.$("[data-key*='" + key + "']").focus();
+    this.$('.focused').removeClass('focused');
+    this.$("[data-key*='" + key + "']").addClass('focused');
   }
 
 });
