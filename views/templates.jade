@@ -33,5 +33,15 @@ script#embedded-template(type="text/template").
 
 script#json-template(type="text/template").
   <div class="json well">
-    { sup: yall }
+    <ul class="list-group">
+      <li class="list-group-item">{</li>
+      <% 
+        var keys = _.keys(data);
+        _.each(keys, function(key) { 
+        var value = data[key];
+      %>
+        <li class="list-group-item"><%= key %>: <%= value %></li>
+      <% }); %>
+      <li class="list-group-item">}</li>
+    </ul>
   </div>

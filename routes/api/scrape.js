@@ -6,7 +6,7 @@ exports.get = function(req, res){
   var url = req.query.url || null;
 
   if (!url) {
-    return res.send(402, "Missing required param 'url'");
+    return res.send(400, "Missing required param 'url'");
   }
 
   embedit.processUrl(url, function(err, result) {
