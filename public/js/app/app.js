@@ -21,10 +21,8 @@ var AppRouter = Backbone.Router.extend({
     var self = this;
 
     this.setup(function() {
-
       var mastheadView = new MastheadView();
       $('#masthead').html(mastheadView.render().el);
-
     });
   },
 });
