@@ -44,7 +44,7 @@ script#embedded-template(type="text/template").
         <p data-key="description"><%= data.description %></p>
         <div class="input-group with-url">
           <span class="input-group-addon">
-            <img src="/img/glyph-video.png">
+            <img data-key="sourceType" src="/img/glyph-<%= data.sourceType %>.png">
           </span>
           <input class="form-control" data-key="shortUrl" type="text" value="<%= data.shortUrl %>">
           <span class="input-group-btn">
