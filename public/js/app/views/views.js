@@ -8,9 +8,9 @@ window.MastheadView = Backbone.View.extend({
   },
 
   exampleUrls: {
-    youtube: "http://www.youtube.com/watch?v=rtUcsroeucg",
-    instagram: "http://instagram.com/p/cIuIvBrOXp",
-    vine: "https://vine.co/v/hWEgv65gzTr"
+    youtube:    "http://www.youtube.com/watch?v=21OH0wlkfbc",
+    instagram:  "http://instagram.com/p/JQbmP",
+    vine:       "https://vine.co/v/hWEgv65gzTr"
   },
 
   initialize: function () {
@@ -131,6 +131,7 @@ window.EmbeddedView = Backbone.View.extend({
     this.template = _.template($('#embedded-template').html());
     this.model = new Backbone.Model();
     app.vent.on('scrape:after', this.updateModel, this);
+    app.vent.on('json:highlight', this.onJsonHightlight, this);
   },
 
   updateModel: function(data) {
@@ -146,5 +147,15 @@ window.EmbeddedView = Backbone.View.extend({
 
     return this;
   },
+
+  onJsonHightlight: function(data) {
+
+    // TODO: Find a way to highlight the parts being used
+
+    // var key = data.key;
+
+    // this.$('[data-key]').blur();
+    // this.$("[data-key*='" + key + "']").focus();
+  }
 
 });

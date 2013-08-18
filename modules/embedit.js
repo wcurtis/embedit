@@ -211,7 +211,7 @@ var instagramModule = {
     var match = url.match(regExp);
 
     // Instagram ids are 10 chars
-    if (match && match[2].length == 10){
+    if (match && match[2].length > 0){
         return match[2];
     }
       return null;
