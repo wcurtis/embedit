@@ -34,19 +34,19 @@ script#embedded-template(type="text/template").
 script#json-template(type="text/template").
   <div class="json">
     <div class="panel">
-    <div class="panel-heading">GET /api/scrape?url=http://youtube.com/v/3j3j2lk</div>
-      <div class="panel-body">
-    <ul class="list-group">
-      <li class="list-group-item">{</li>
-      <% 
-        var keys = _.keys(data);
-        _.each(keys, function(key) { 
-        var value = data[key];
-      %>
-        <li class="list-group-item"><pre><span class="json-key"><%= key %></span>: <%= _.escape(value) %></pre></li>
-      <% }); %>
-      <li class="list-group-item">}</li>
-    </ul>
-  </div>
-  </div>
+      <div class="panel-heading">GET /api/scrape?url=http://youtube.com/v/3j3j2lk</div>
+        <div class="panel-body">
+        <ul class="list-group">
+          <li class="list-group-item">{</li>
+          <% 
+            var keys = _.keys(data);
+            _.each(keys, function(key) { 
+            var value = data[key];
+          %>
+            <li class="list-group-item"><pre><span class="json-key"><%= key %></span>: <%= _.escape(value) %></pre></li>
+          <% }); %>
+          <li class="list-group-item">}</li>
+        </ul>
+      </div>
+    </div>
   </div>
