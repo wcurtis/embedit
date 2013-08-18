@@ -14,9 +14,15 @@ footer {
 }
 
 .masthead {
-  position: relative;
-  padding: 30px 15px;
-  text-align: center;
+	position: relative;
+	padding: 30px 15px;
+	text-align: center;
+	background-image: url('/img/textures/knitting250px.png');
+
+	margin-left: -10000px;
+	margin-right: -10000px;
+	padding-left: 10015px;
+	padding-right: 10015px;
 }
 
 .masthead h1 {
@@ -34,6 +40,14 @@ footer {
 .masthead .input-group-lg > .input-group-btn > .btn {
 	height: 55px;
 }
+
+/**
+ * Content
+ */
+.content {
+	margin-top: 30px;
+}
+
 
 /**
  * Embedded
