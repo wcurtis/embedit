@@ -15,6 +15,7 @@ window.MastheadView = Backbone.View.extend({
     this.$el.html(this.template({
       data: this.options.data || {}
     }));
+
     return this;
   },
 
@@ -41,7 +42,10 @@ window.MastheadView = Backbone.View.extend({
 window.EmbeddedView = Backbone.View.extend({
 
   initialize: function () {
+
     this.template = _.template($('#embedded-template').html());
+
+    app.vent.on('try', this.onTry, this);
   },
 
   render: function (eventName) {
@@ -51,4 +55,12 @@ window.EmbeddedView = Backbone.View.extend({
     }));
     return this;
   },
+
+  onTry: function(data) {
+
+    console.log('ontry');
+
+    this.render();
+
+  }
 });

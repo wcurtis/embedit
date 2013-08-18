@@ -5,9 +5,6 @@ var AppRouter = Backbone.Router.extend({
 
   initialize:function () {
     this.vent = _.extend({}, Backbone.Events);
-
-    this.vent.on('try', this.onTry, this);
-
     return;
   },
 
@@ -20,21 +17,19 @@ var AppRouter = Backbone.Router.extend({
     callback();
   },
 
-  onTry: function(data) {
-
-    var url = data.url;
-
-    var embeddedView = new EmbeddedView();
-    $('#right').html(embeddedView.render().el);
-  },
-
   showHome: function() {
 
     var self = this;
 
     this.setup(function() {
+
       var mastheadView = new MastheadView();
       $('#masthead').html(mastheadView.render().el);
+      mastheadView.$('input').focus();
+
+      var embeddedView = new EmbeddedView();
+      $('#right').html(embeddedView.render().el);
+
     });
   },
 });
