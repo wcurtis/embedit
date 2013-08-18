@@ -94,6 +94,14 @@ footer {
 /**
  * Json
  */
+.json {
+	font-size: 12px;
+}
+
+.json pre {
+	font-size: 12px;
+}
+
 .json .list-group-item {
 	background-color: transparent;
 	border: transparent;
