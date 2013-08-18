@@ -14,10 +14,21 @@ script#masthead-template(type="text/template").
     </div>
   </div>
 
+script#content-template(type="text/template").
+  <div class="content">
+    <div id="left"></div>
+    <div id="right"></div>
+  </div>
+
 script#embedded-template(type="text/template").
   <div class="embedded">
     <h4><%= data.title %></h4>
     <p><%= data.description %></p>
     <img src=<%= data.thumbnail %>>
     <div class="embed"><%= data.embed %></div>
+  </div>
+
+script#json-template(type="text/template").
+  <div class="json well">
+    { sup: yall }
   </div>

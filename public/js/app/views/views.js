@@ -39,6 +39,36 @@ window.MastheadView = Backbone.View.extend({
   }
 });
 
+window.ContentView = Backbone.View.extend({
+
+  initialize: function () {
+    this.template = _.template($('#content-template').html());
+  },
+
+  render: function (eventName) {
+    this.$el.html(this.template());
+    return this;
+  },
+});
+
+window.JsonView = Backbone.View.extend({
+
+  initialize: function () {
+
+    this.template = _.template($('#json-template').html());
+  },
+
+  render: function (eventName) {
+
+    var self = this;
+
+    self.$el.html(self.template({
+    }));
+
+    return this;
+  },
+});
+
 window.EmbeddedView = Backbone.View.extend({
 
   initialize: function () {
