@@ -51,8 +51,10 @@ window.EmbeddedView = Backbone.View.extend({
 
     var self = this;
 
-    this.fetchModel(function(err) {
-      self.$el.html(self.template());
+    this.fetchModel(function(err, model) {
+      self.$el.html(self.template({
+        data: model.toJSON()
+      }));
     });
 
     return this;
@@ -61,7 +63,7 @@ window.EmbeddedView = Backbone.View.extend({
   fetchModel: function(callback) {
 
     if (!this.model) {
-      return callback();
+      return callback(null, new Backbone.Model());
     }
 
     var model = this.model;
