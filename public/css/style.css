@@ -114,6 +114,10 @@ footer {
 	top: -4px;
 }
 
+.embedded img.media-type {
+	padding-top: 2px;	 
+}
+
 /**
  * Json
  */

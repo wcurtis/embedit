@@ -36,11 +36,17 @@ script#embedded-template(type="text/template").
           <img class="thumbnail-icon" data-key="thumbnail" src=<%= data.thumbnail %>>
         </div>
         <span class="title" data-key="title"><%= data.title || '&nbsp;' %></span>
+        <div class="pull-right with-url">
+          <img class="media-type" data-key="mediaType" src="/img/glyph-<%= data.mediaType %>.png">
+        </div>
       </div>
       <div class="panel-body">
         <div class="embed" data-key="embed"><%= data.embed %></div>
         <p data-key="description"><%= data.description %></p>
         <div class="input-group with-url">
+          <span class="input-group-addon">
+            <img src="/img/glyph-video.png">
+          </span>
           <input class="form-control" data-key="shortUrl" type="text" value="<%= data.shortUrl %>">
           <span class="input-group-btn">
             <button class="btn btn-default" type="button">Share</button>
