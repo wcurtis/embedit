@@ -21,7 +21,7 @@ var AppRouter = Backbone.Router.extend({
   onScrape: function(data) {
 
     var url = data.url;
-    var scrape = new Scrape({ 
+    var scrape = new Scrape({}, { 
       params: {
         url: url 
       }

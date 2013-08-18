@@ -1,7 +1,7 @@
 
 window.Scrape = Backbone.Model.extend({
 
-  initialize: function(options) {
+  initialize: function(attributes, options) {
 
     this.params = options.params || {};
   },
