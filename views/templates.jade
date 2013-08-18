@@ -31,7 +31,12 @@ script#content-template(type="text/template").
 script#embedded-template(type="text/template").
   <div class="embedded">
     <div class="panel">
-      <div class="panel-heading" data-key="title"><%= data.title || '&nbsp;' %></div>
+      <div class="panel-heading">
+        <div class="pull-left">
+          <img class="thumbnail-icon" data-key="thumbnail" src=<%= data.thumbnail %>>
+        </div>
+        <span class="title" data-key="title"><%= data.title || '&nbsp;' %></span>
+      </div>
       <div class="panel-body">
         <div class="embed" data-key="embed"><%= data.embed %></div>
         <p data-key="description"><%= data.description %></p>

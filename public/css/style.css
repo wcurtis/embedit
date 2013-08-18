@@ -106,6 +106,14 @@ footer {
 	min-height: 400px;
 }
 
+.embedded .panel-heading img {
+	width: 30px;
+	border-radius: 2px;
+	margin-right: 10px;
+	position: relative;
+	top: -4px;
+}
+
 /**
  * Json
  */
