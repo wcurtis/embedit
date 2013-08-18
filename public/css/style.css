@@ -6,6 +6,10 @@ footer {
 	text-align: center;
 }
 
+.navbar-brand {
+	font-family: 'Chau Philomene One', sans-serif;
+}
+
 /**
  * Masthead
  */
@@ -56,6 +60,10 @@ footer {
 	width: 40px;
 	margin-left: 8px;
 	border-radius: 4px;
+}
+
+.masthead .supported-brands a:first-child img {
+	margin-left: 0px;
 }
 
 /**
