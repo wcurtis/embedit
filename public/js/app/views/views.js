@@ -54,19 +54,20 @@ window.ContentView = Backbone.View.extend({
 window.JsonView = Backbone.View.extend({
 
   initialize: function () {
-
     this.template = _.template($('#json-template').html());
+    this.model = new Backbone.Model();
+    app.vent.on('scrape:after', this.updateModel, this);
+  },
+
+  updateModel: function(model) {
+    this.model = model;
+    this.render();
   },
 
   render: function (eventName) {
 
-    var self = this;
-
-    self.$el.html(self.template({
-      data: {
-        one: 1,
-        two: 2
-      }
+    this.$el.html(this.template({
+      data: this.model.toJSON()
     }));
 
     return this;
