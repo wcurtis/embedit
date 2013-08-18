@@ -60,6 +60,16 @@ footer {
 	width: 40px;
 	margin-left: 8px;
 	border-radius: 4px;
+	opacity: 0.8;
+}
+
+.masthead .supported-brands-text {
+	font-size: 12px;
+	opacity: 0.7;
+}
+
+.masthead .supported-brands img:hover {
+	opacity: 1;
 }
 
 .masthead .supported-brands a:first-child img {
