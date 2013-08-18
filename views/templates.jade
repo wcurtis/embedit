@@ -32,7 +32,10 @@ script#embedded-template(type="text/template").
   </div>
 
 script#json-template(type="text/template").
-  <div class="json well">
+  <div class="json">
+    <div class="panel">
+    <div class="panel-heading">GET /api/scrape?url=http://youtube.com/v/3j3j2lk</div>
+      <div class="panel-body">
     <ul class="list-group">
       <li class="list-group-item">{</li>
       <% 
@@ -44,4 +47,6 @@ script#json-template(type="text/template").
       <% }); %>
       <li class="list-group-item">}</li>
     </ul>
+  </div>
+  </div>
   </div>
