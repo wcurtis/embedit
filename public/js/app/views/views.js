@@ -63,15 +63,17 @@ window.JsonView = Backbone.View.extend({
     app.vent.on('scrape:after', this.updateModel, this);
   },
 
-  updateModel: function(model) {
-    this.model = model;
+  updateModel: function(data) {
+    this.model = data.model;
+    this.url = data.url;
     this.render();
   },
 
   render: function (eventName) {
 
     this.$el.html(this.template({
-      data: this.model.toJSON()
+      data: this.model.toJSON(),
+      url: this.url || ''
     }));
 
     return this;
@@ -93,8 +95,8 @@ window.EmbeddedView = Backbone.View.extend({
     app.vent.on('scrape:after', this.updateModel, this);
   },
 
-  updateModel: function(model) {
-    this.model = model;
+  updateModel: function(data) {
+    this.model = data.model;
     this.render();
   },
 

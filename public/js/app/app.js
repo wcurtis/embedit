@@ -29,7 +29,10 @@ var AppRouter = Backbone.Router.extend({
 
     app.vent.trigger('scrape:before', url);
     scrape.fetch({success: function() {
-      app.vent.trigger('scrape:after', scrape);
+      app.vent.trigger('scrape:after', {
+        url: url,
+        model: scrape
+      });
     }});
   },
 
