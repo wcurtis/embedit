@@ -29,8 +29,26 @@ window.MastheadView = Backbone.View.extend({
 
   onSubmit: function(e) {
 
-    var value = this.$('.url-input').val();
-    console.log("clicked " + value);
+    var url = this.$('.url-input').val();
+
+    app.vent.trigger('try', {
+      url: url
+    });
     return false;
   }
+});
+
+window.EmbeddedView = Backbone.View.extend({
+
+  initialize: function () {
+    this.template = _.template($('#embedded-template').html());
+  },
+
+  render: function (eventName) {
+
+    this.$el.html(this.template({
+      data: this.options.data || {}
+    }));
+    return this;
+  },
 });

@@ -4,6 +4,10 @@ var AppRouter = Backbone.Router.extend({
   account: null,
 
   initialize:function () {
+    this.vent = _.extend({}, Backbone.Events);
+
+    this.vent.on('try', this.onTry, this);
+
     return;
   },
 
@@ -14,6 +18,14 @@ var AppRouter = Backbone.Router.extend({
   setup: function(callback) {
     var self = this;
     callback();
+  },
+
+  onTry: function(data) {
+
+    var url = data.url;
+
+    console.log('try ' + url);
+
   },
 
   showHome: function() {
