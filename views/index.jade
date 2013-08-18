@@ -29,9 +29,6 @@ html
           </div>
         </div>
       #masthead
-        .masthead
-          h1 Embed anything on the web. Simply.
-          p Embedit.io provide a simple and consistent API to retrieve properties of any website for quick and consistent embedding on your site.
       #content
         #left
         #right
@@ -41,7 +38,8 @@ html
         p &copy; Embedit 2013 | Created by 
           a(href="http://twitter.com/billcurtis_", target="_blank", data-bypass="true") @billcurtis_
 
-    .templates
+    #templates
+      include templates
 
     .jslibs.
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
@@ -49,8 +47,6 @@ html
       <script src="js/vendor/bootstrap.min.js"></script>
       <script src="js/vendor/underscore-min.js"></script>
       <script src="js/vendor/backbone-min.js"></script>
-      <script src="js/vendor/bbgrid.js"></script>
-      <script src="js/main.js"></script>
 
       <!-- TODO: Split views up into their own files for organization, but also add in minify/combining of these files for performance -->
       <script src="js/app/models/models.js"></script>
