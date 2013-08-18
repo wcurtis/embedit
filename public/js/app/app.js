@@ -24,8 +24,8 @@ var AppRouter = Backbone.Router.extend({
 
     var url = data.url;
 
-    console.log('try ' + url);
-
+    var embeddedView = new EmbeddedView();
+    $('#right').html(embeddedView.render().el);
   },
 
   showHome: function() {
