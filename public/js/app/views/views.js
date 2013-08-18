@@ -58,12 +58,12 @@ window.MastheadView = Backbone.View.extend({
 
     var $item = $(e.currentTarget);
     var key = $item.data('key');
+    var url = this.exampleUrls[key];
 
-    console.log('click ' + key);
+    // Submit the url through the input field
+    this.$('.url-input').val(url);
+    this.$('.btn-embedit').click();
 
-    app.vent.trigger('scrape', { 
-      url: this.exampleUrls[key]
-    });
     return false;
   },
 
