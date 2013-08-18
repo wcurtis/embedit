@@ -22,10 +22,13 @@ script#content-template(type="text/template").
 
 script#embedded-template(type="text/template").
   <div class="embedded">
-    <h4><%= data.title %></h4>
-    <p><%= data.description %></p>
-    <img src=<%= data.thumbnail %>>
-    <div class="embed"><%= data.embed %></div>
+    <div class="panel">
+      <div class="panel-heading"><%= data.title %></div>
+      <div class="panel-body">
+        <div class="embed"><%= data.embed %></div>
+        <p><%= data.description %></p>
+      </div>
+    </div>
   </div>
 
 script#json-template(type="text/template").
