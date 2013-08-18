@@ -4,7 +4,7 @@ script#masthead-template(type="text/template").
     <p>Embedit.io provide a simple and consistent API to retrieve properties of any website for quick and consistent embedding on your site.</p>
     <div class="tryit">
       <form action="#" method="get" class="form-horizontal">
-        <div class="input-group">
+        <div class="input-group input-group-lg">
           <input class="url-input form-control input-lg" type="text" placeholder="http://www.youtube.com/watch?v=rtUcsroeucg">
           <span class="input-group-btn">
             <button class="btn btn-default" type="button">Embedit!</button>
@@ -12,4 +12,23 @@ script#masthead-template(type="text/template").
         </div>
       </form>
     </div>
+  </div>
+
+script#content-template(type="text/template").
+  <div class="content row">
+    <div id="left" class="col-sm-6"></div>
+    <div id="right" class="col-sm-6"></div>
+  </div>
+
+script#embedded-template(type="text/template").
+  <div class="embedded">
+    <h4><%= data.title %></h4>
+    <p><%= data.description %></p>
+    <img src=<%= data.thumbnail %>>
+    <div class="embed"><%= data.embed %></div>
+  </div>
+
+script#json-template(type="text/template").
+  <div class="json well">
+    { sup: yall }
   </div>

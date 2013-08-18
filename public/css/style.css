@@ -17,3 +17,7 @@
 footer {
 	text-align: center;
 }
+
+.embedded .embed iframe {
+	width: 100%;
+}
