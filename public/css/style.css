@@ -17,7 +17,8 @@ footer {
 	position: relative;
 	padding: 30px 15px;
 	text-align: center;
-	background-image: url('/img/textures/knitting250px.png');
+	background-image: url('/img/textures/cartographer.png');
+	color: white;
 
 	margin-left: -10000px;
 	margin-right: -10000px;
@@ -30,10 +31,14 @@ footer {
   line-height: 1;
 }
 
+.masthead p {
+	opacity: 0.7;
+}
+
 .masthead .tryit {
 	max-width: 540px;
 	margin: auto;
-	margin-top: 25px;
+	margin-top: 50px;
 }
 
 .masthead .url-input,
